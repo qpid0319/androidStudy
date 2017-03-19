@@ -1,0 +1,74 @@
+package com.example.androidex13;
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+public class MainActivity extends Activity {
+	private CustomAdapter adapter = null;
+	private GridView gv = null;
+	
+	private LinearLayout ll;
+	private ImageView[] ivs;
+	
+	private CheckBox ck_01 = null;
+	private CheckBox ck_02 = null;
+	private CheckBox ck_03 = null;
+	private CheckBox ck_04 = null;	
+	
+	private int[] data = { R.drawable.a, R.drawable.apple2, R.drawable.android, R.drawable.appstore, 
+	           R.drawable.avast, R.drawable.blogger, R.drawable.books, R.drawable.calculator, 
+	           R.drawable.calendar, R.drawable.camera, R.drawable.chat, R.drawable.chrome,
+	           R.drawable.cinemagram, R.drawable.clock, R.drawable.contacts, R.drawable.cydia
+};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		adapter = new CustomAdapter(this, data);
+		gv = (GridView) findViewById(R.id.gv_01);
+		gv.setAdapter(adapter);
+		
+		ll = (LinearLayout) findViewById(R.id.ll_01);
+		ivs = new ImageView[9];
+		
+		for ( int i = 0;i < 9; i++) {
+			ivs[i] = new ImageView(this);
+			ivs[i].setImageResource(data[i]);
+			ll.addView(ivs[i]);
+		}
+		
+		ck_01 = (CheckBox) findViewById(R.id.ck_01);
+		ck_02 = (CheckBox) findViewById(R.id.ck_02);
+		ck_03 = (CheckBox) findViewById(R.id.ck_03);
+		ck_04 = (CheckBox) findViewById(R.id.ck_04);
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}
