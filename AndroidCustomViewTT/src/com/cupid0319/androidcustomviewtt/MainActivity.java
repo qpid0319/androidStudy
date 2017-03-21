@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -13,9 +17,32 @@ public class MainActivity extends Activity {
 //		setContentView(R.layout.activity_main);
 		
 		CustomView customView = new CustomView(this);
+		customView.setOnClickListener(clickListener);
+		customView.setOnLongClickListener(longClickListener);
+		
 		setContentView(customView);
+		
 	}
+	
+	OnClickListener clickListener = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Toast.makeText(MainActivity.this, "OnClick()", Toast.LENGTH_LONG).show();
+		}
+	};
 
+	OnLongClickListener longClickListener = new OnLongClickListener() {
+		
+		@Override
+		public boolean onLongClick(View v) {
+			// TODO Auto-generated method stub
+			Toast.makeText(MainActivity.this, "longClick()", Toast.LENGTH_LONG).show();			
+			return false;
+		}
+	};
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

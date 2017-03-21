@@ -27,7 +27,7 @@ public class WeatherAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return data.size();
+		return data.size(); 
 	}
 
 	@Override
