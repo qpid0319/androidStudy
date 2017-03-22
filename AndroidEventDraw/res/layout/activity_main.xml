@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.androideventdraw.MainActivity" >
+    
+    <com.example.androideventdraw.CustomView 
+        android:id="@+id/new_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="400px"/>
+
+    <Button
+        android:id="@+id/bt_new_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Canvas" />        
+
+</LinearLayout>
